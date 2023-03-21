@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Inicio de sesión</title>
+    <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./scss/ingresar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Rubik:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="inicio">
+      <li><a class="icono" href="./index.html"><ion-icon name="arrow-back-outline"></ion-icon></a></li>
+    </div>
+    <div class="container">
+      <form id="loginForm" class="form">
+        <h2>Iniciar sesión</h2>
+        <div class="form-group">
+          <label for="username">Nombre de usuario</label>
+          <input type="text" id="username" name="username" required>
+          <span id="username-error" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required>
+          <span id="password-error" class="error-message"></span>
+        </div>
+        <div id="login-error" class="error-message"></div>
+        <button type="submit">Iniciar sesión</button>
+        <p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate aquí</a>.</p>
+      </form>
+      
+      <div class="foo">
+        <div class="footer">
+            <ul class="sci">
+            <li>
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            </li>
+            <li>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            </li>
+            <li>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            </li>
+            </ul>
+            </div>
+      </div>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+      nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+      ></script>
+  
+    <script src="./ingresar.js"></script>
+  </body>
+</html>
