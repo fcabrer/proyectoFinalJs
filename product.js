@@ -11,6 +11,33 @@ let allProducts = [];
 
 btnCart.addEventListener("click", () => containerCartProducts.classList.toggle("hidden-cart"));
 
+const getAllProducts = () => {
+	fetch('https://fakestoreapi.com/products?limit=4')
+            .then(res=>res.json())
+            .then(json => {
+				const airShoesPrice = json[0].price;
+				const jourdanPrice = json[1].price;
+				const runningPrice = json[2].price;
+				const airforcePrice = json[3].price;
+
+				document.getElementById('airShoes').innerHTML = `$${airShoesPrice}`;
+				const airShoesButton = document.querySelector('#airShoesButton');
+				airShoesButton.dataset.precio = airShoesPrice;
+
+				document.getElementById('jourdan').innerHTML = `$${jourdanPrice}`;
+				const jourdanButton = document.querySelector('#jourdanButton');
+				jourdanButton.dataset.precio = jourdanPrice;
+
+				document.getElementById('running').innerHTML = `$${runningPrice}`;
+				const runningButton = document.querySelector('#runningButton');
+				runningButton.dataset.precio = runningPrice;
+			
+				document.getElementById('airforce').innerHTML = `$${airforcePrice}`;
+				const airforceButton = document.querySelector('#airforceButton');
+				airforceButton.dataset.precio = airforcePrice;
+			})
+}
+
 productsList.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-add-cart")) {
     const { nombre: title, precio: price } = e.target.dataset;
@@ -55,9 +82,11 @@ const showHTML = () => {
 		cartTotal.classList.remove('hidden');
 	}
 
-	const total = allProducts.reduce((total, product) => total + parseInt(product.quantity * product.price.slice(1)), 0);
-	const totalOfProducts = allProducts.reduce((total, product) => total + product.quantity, 0);
+	const total = allProducts.reduce((total, product) => total + parseInt(Number(product.quantity) * Number(product.price)), 0);
+	localStorage.setItem('totalProducts', allProducts.reduce((total, product) => total + product.quantity, 0));
 
 	valorTotal.innerText = `$${total}`;
-	countProducts.innerText = totalOfProducts;
+	countProducts.innerText = localStorage.getItem('totalProducts');
 };
+
+getAllProducts();
